@@ -1,7 +1,6 @@
 //Day 1 of adventofcode2022
 //
 //A simple program to find the largest number of calories any of the elves is carrying.
-//Run in Bash by "cat <input_file_name> | ./advent1_1"
 
 
 #include <iostream>

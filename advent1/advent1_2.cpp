@@ -2,7 +2,6 @@
 //
 //A simple program that outputs the three largest calorie counts carried by individual 
 //elves, ordered non-increasingly, as well as the sum of these three calorie counts.
-//Run in Bash by "cat <input_file_name> | ./advent1_2"
 
 #include <iostream>
 #include <string>
