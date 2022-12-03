@@ -44,7 +44,7 @@ int main() {
 			}
 		}
 
-		if (outcome == 'Y') {
+		else if (outcome == 'Y') {
 			if (opponent_move == 'A') {
 				score += 4;
 			}
@@ -56,7 +56,7 @@ int main() {
 			}
 		}
 
-		if (outcome == 'Z') {
+		else if (outcome == 'Z') {
 			if (opponent_move == 'A') {
 				score += 8;
 			}

@@ -41,7 +41,7 @@ int main() {
 			}
 		}
 
-		if (own_move == 'Y') {
+		else if (own_move == 'Y') {
 			if (opponent_move == 'A') {
 				score += 8;
 			}
@@ -53,7 +53,7 @@ int main() {
 			}
 		}
 
-		if (own_move == 'Z') {
+		else if (own_move == 'Z') {
 			if (opponent_move == 'B') {
 				score += 9;
 			}
