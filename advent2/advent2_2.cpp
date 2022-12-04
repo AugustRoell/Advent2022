@@ -71,7 +71,9 @@ int main() {
 
 	}
 
-	std::cout << "If everything goes according to plan your score will be " << score << '\n';
+	std::cout << 
+		"If everything goes according to plan your score will be " 
+		<< score << '\n';
 
 
 
