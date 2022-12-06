@@ -39,15 +39,15 @@ int main () {
 
 		sec_1_start = stoi(line.substr(0, line.find('-')));
 		sec_1_end = stoi(line.substr(line.find('-') + 1, 
-					line.find(',')));
+					line.find(',') - 
+					line.find('-') - 1));
 		sec_2_start = stoi(line.substr(line.find(',') + 1, 
-					line.find_last_of('-')));
+					line.find_last_of('-') - 
+					line.find(',') - 1));
 		sec_2_end = stoi(line.substr(line.find_last_of('-') + 1));
 		
 		if (!(sec_1_end < sec_2_start or sec_1_start > sec_2_end))
 			num_of_overlappings += 1;
-
-		//std::cout << num_of_overlappings << '\n';
 	}
 
 	std::cout << "There are " << num_of_overlappings << 

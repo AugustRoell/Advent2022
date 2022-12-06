@@ -48,7 +48,7 @@ int main() {
 		length = line.length();
 
 		first_compartment = line.substr(0, length/2);
-		second_compartment = line.substr(length/2, length);
+		second_compartment = line.substr(length/2);
 
 		for (char item : first_compartment) {
 			if (second_compartment.find(item) 

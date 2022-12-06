@@ -115,12 +115,12 @@ int main() {
 	//This time, we do not move the crates one by one, but rather in 
 	//groups, preserving their relative order.
 	while (std::getline(std::cin, line)) {
-		num_of_moves = stoi(line.substr(4, 
-					line.find('f') - 1));
-		origin = stoi(line.substr(line.find_last_of('m') + 1, 
-					line.find('t') - 1));
-		destination = stoi(line.substr(line.find_last_of('o') + 1, 
-					line.length()));
+		num_of_moves = stoi(line.substr(5, 
+					line.find('f') - 6));
+		origin = stoi(line.substr(line.find_last_of('m') + 2, 
+					line.find('t') - 
+					line.find_last_of('m') - 3));
+		destination = stoi(line.substr(line.find_last_of('o') + 2));
 
 		for (std::size_t i = stacks[origin - 1].size() - num_of_moves; 
 				i < stacks[origin - 1].size(); i++) {

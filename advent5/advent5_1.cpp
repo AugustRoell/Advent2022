@@ -115,12 +115,12 @@ int main() {
 	//As is required in this challenge, the crates are moved one by one, 
 	//effectively reversing their order.
 	while (std::getline(std::cin, line)) {
-		num_of_moves = stoi(line.substr(4, 
-					line.find('f') - 1));
-		origin = stoi(line.substr(line.find_last_of('m') + 1, 
-					line.find('t') - 1));
-		destination = stoi(line.substr(line.find_last_of('o') + 1, 
-					line.length()));
+		num_of_moves = stoi(line.substr(5, 
+					line.find('f') - 6));
+		origin = stoi(line.substr(line.find_last_of('m') + 2, 
+					line.find('t') - 
+					line.find_last_of('m') - 3));
+		destination = stoi(line.substr(line.find_last_of('o') + 2));
 
 		for (unsigned int i = 0; i < num_of_moves; i++) {
 			stacks[destination - 1].push_back(
