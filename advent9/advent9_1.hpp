@@ -2,7 +2,7 @@
 #define ADVENT9_1_HPP
 
 
-#include<utility>
+#include <utility>
 #include <string>
 #include <iostream>
 
@@ -10,7 +10,7 @@
 class Knot {
 
 	public:
-		knot(const int x = 0, const int y = 0) :
+		Knot(const int x = 0, const int y = 0) :
 			x_(x), y_(y) {}
 
 		std::pair<int, int> get_position() {
@@ -26,46 +26,48 @@ class Knot {
 		int x_;
 		int y_;
 
-		friend class Head, Tail;
+	friend class Head;
+	friend class Tail;
 };
 
-class Head : Knot {
+class Head : public Knot {
 
 	public:
-		void change_positon(const char direction, 
-				const unsigned int amount) {
+		void change_position(const char direction) {
 		
 			if (direction == 'U') {
-				y_ += amount;
+				y_++;
 			}
 
 			else if (direction == 'R') {
-				x_ += amount;
+				x_++;
 			}
 
 			else if (direction == 'D') {
-				y_ -= amount;
+				y_--;
 			}
 
 			else if (direction == 'L') {
-				x_ -= amount;
+				x_--;
 			}
 
 			else {
 				std::cout 
 					<< "ERROR: The input character " 
-					<< "was none of U,R,D,L\n"
+					<< "was none of U,R,D,L\n";
 			}	
 		}
+
+	friend class Tail;
 };
 
-class Tail : Knot {
+class Tail : public Knot {
 
 	public:
 		void follow(Head const& head) {
 
-			if (x_ - head.get_position()[0] < -2 ||
-				x_ - head.get_position()[0] > 2) {
+			if (x_ - head.x_ < -2 ||
+				x_ - head.x_ > 2) {
 					
 				std::cout 
 					<< "ERROR: " 
@@ -75,8 +77,8 @@ class Tail : Knot {
 			
 			}
 
-			if (y_ - head.get_position()[1] < -2 ||
-				y_ - head.get_position()[1] > 2) {
+			if (y_ - head.y_ < -2 ||
+				y_ - head.y_ > 2) {
 					
 				std::cout 
 					<< "ERROR: " 
@@ -85,10 +87,10 @@ class Tail : Knot {
 					<< '\n';
 			}
 
-			if ((x_ - head.get_position()[0] <= -2 || 
-				x_ - head.get_position()[0] >= 2) && 
-				(y_ - head.get_position()[1] <= -2 || 
-				 y_ - head.get_position()[1] >= 2)) {
+			if ((x_ - head.x_ <= -2 || 
+				x_ - head.x_ >= 2) && 
+				(y_ - head.y_ <= -2 || 
+				 y_ - head.y_ >= 2)) {
 			
 				std::cout
 					<< "ERROR: "
@@ -97,48 +99,48 @@ class Tail : Knot {
 					<< '\n';
 			}
 
-			else if (x_ == head.get_position()[0]) {
+			else if (x_ == head.x_) {
 
-				if (y_ == head.get_position()[1] - 2) {
+				if (y_ == head.y_ - 2) {
 					y_++;
 				}
 
-				else if (y_ == head.get_position()[1] + 2) {
+				else if (y_ == head.y_ + 2) {
 					y_--;
 				}
 			}
 
-			else if (y_ == head.get_position()[1]) {
+			else if (y_ == head.y_) {
 			
-				if (x_ == head.get_position()[0] - 2) {
+				if (x_ == head.x_ - 2) {
 					x_++;
 				}
 
-				else if (x_ == head.get_position()[0] + 2) {
+				else if (x_ == head.x_ + 2) {
 					x_--;
 				}
 			}
 
 			else {
 				
-				if (y_ == head.get_position()[1] - 2) {
+				if (y_ == head.y_ - 2) {
 					y_++;
-					x_ = head.get_position()[0];
+					x_ = head.x_;
 				}
 
-				else if (y_ == head.get_position()[1] + 2) {
+				else if (y_ == head.y_ + 2) {
 					y_--;
-					x_ = head.get_position()[0];
+					x_ = head.x_;
 				}
 
-				else if (x_ == head.get_position()[0] - 2) {
+				else if (x_ == head.x_ - 2) {
 					x_++;
-					y_ = head.get_position()[1];
+					y_ = head.y_;
 				}
 
-				else if (x_ == head.get_position()[0] + 2) {
+				else if (x_ == head.x_ + 2) {
 					x_--;
-					y_ = head.get_position()[1];
+					y_ = head.y_;
 				}
 			}
 		}
