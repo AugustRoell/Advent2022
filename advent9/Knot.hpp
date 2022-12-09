@@ -7,6 +7,10 @@
 #include <iostream>
 
 
+//A super class that contains basic member for accessing the relevant 
+//information. Each "Knot" object is represented by a pair of integers, 
+//which can be accessed in the form of a pair, representing the coordinates 
+//of the knot with respect to the origin on the square lattice.
 class Knot {
 
 	public:
@@ -30,6 +34,9 @@ class Knot {
 	friend class Tail;
 };
 
+
+//A derived class representing the head knot on the rope. Its position can be 
+//changed in steps of one along the axes of the lattice.
 class Head : public Knot {
 
 	public:
@@ -61,45 +68,15 @@ class Head : public Knot {
 	friend class Tail;
 };
 
+
+//A derived class representing a knot that follows the movement of the knot 
+//ahead of it.
 class Tail : public Knot {
 
 	public:
-		void follow(Head const& head) {
+		void follow(Knot const& head) {
 
-			if (x_ - head.x_ < -2 ||
-				x_ - head.x_ > 2) {
-					
-				std::cout 
-					<< "ERROR: " 
-					<< "Planck Length exceeded " 
-					<< "along x-axis!" 
-					<< '\n';
-			
-			}
-
-			if (y_ - head.y_ < -2 ||
-				y_ - head.y_ > 2) {
-					
-				std::cout 
-					<< "ERROR: " 
-					<< "Planck Length exceeded " 
-					<< "along y-axis!" 
-					<< '\n';
-			}
-
-			if ((x_ - head.x_ <= -2 || 
-				x_ - head.x_ >= 2) && 
-				(y_ - head.y_ <= -2 || 
-				 y_ - head.y_ >= 2)) {
-			
-				std::cout
-					<< "ERROR: "
-					<< "Planck Length exceeded "
-					<< "along the diagonal!"
-					<< '\n';
-			}
-
-			else if (x_ == head.x_) {
+			if (x_ == head.x_) {
 
 				if (y_ == head.y_ - 2) {
 					y_++;
@@ -122,8 +99,35 @@ class Tail : public Knot {
 			}
 
 			else {
+				if (x_ == head.x_ - 2 && 
+						y_ == head.y_ - 2) {
+					
+					x_++;
+					y_++;
+				}
+
+				else if (x_ == head.x_ - 2 && 
+						y_ == head.y_ + 2) {
 				
-				if (y_ == head.y_ - 2) {
+					x_++;
+					y_--;
+				}
+
+				else if (x_ == head.x_ + 2 && 
+						y_ == head.y_ + 2) {
+				
+					x_--;
+					y_--;
+				}
+
+				else if (x_ == head.x_ + 2 && 
+						y_ == head.y_ - 2) {
+				
+					x_--;
+					y_++;
+				}
+
+				else if (y_ == head.y_ - 2) {
 					y_++;
 					x_ = head.x_;
 				}

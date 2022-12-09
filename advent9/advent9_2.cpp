@@ -1,13 +1,14 @@
 //Day 9 of Advent of Code 2022
 //
 //A program to find the number of positions traversed at least once by a tail 
-//knot of a double knotted rope. In particular, we simulate the behaviour of a 
-//rope of Planck Length with a knot at its head and tail, and these head and 
-//tail knots live on a square lattice with spacing equal to one Planck Length. 
-//Note that we take the diagonal distance to also be equal to one Planck 
-//Length. The simulation then deals with the movements of the head knot, as 
-//provided by the input .txt file, and the subsequent movements of the tail 
-//knot, which must stay at most one Planck Length away from the head.
+//knot of a tenfold knotted rope. In particular, we simulate the behaviour of 
+//a rope consisting of ten knots, each with one Planck Length distance. These 
+//knots live on a square lattice with spacing equal to one Planck Length. Note 
+//that we take the diagonal distance to also be equal to one Planck Length. 
+//The simulation then deals with the movements of the head knot, as provided 
+//by the input .txt file, and the subsequent movements of all the other knots, 
+//which must stay at most one Planck Length away from the knot in front of 
+//them.
 
 
 #include "Knot.hpp"
@@ -27,13 +28,14 @@ int main () {
 	//A vector of pair objects which will contain all the positions the 
 	//tail knot traversed at least once. It will contain each such 
 	//position exactly once. It is initialized with a vector containing 
-	//only the origin, because that is where the head and tail knots start.
+	//only the origin, because that is where all the knots start.
 	std::vector<std::pair<int, int>> traversed_positions = {origin};
 
-	//A Head and a Tail object, which will represent the head and the tail 
-	//of the simulated rope. They are initialized at their default 
-	//position at the origin.
+	//Ten Knot objects, which will represent the head, the tail, and all 
+	//the knots in between of the simulated rope. They are initialized at 
+	//their default position at the origin.
 	Head head;
+	Tail knot_2, knot_3, knot_4, knot_5, knot_6, knot_7, knot_8, knot_9;
 	Tail tail;
 
 	//A character object that will contain the character in the input .txt 
@@ -63,8 +65,18 @@ int main () {
 
 			head.change_position(direction);
 
-			tail.follow(head);
+			knot_2.follow(head);
+			knot_3.follow(knot_2);
+			knot_4.follow(knot_3);
+			knot_5.follow(knot_4);
+			knot_6.follow(knot_5);
+			knot_7.follow(knot_6);
+			knot_8.follow(knot_7);
+			knot_9.follow(knot_8);
+
+			tail.follow(knot_9);
 			
+
 			if (std::find(traversed_positions.begin(), 
 						traversed_positions.end(), 
 						tail.get_position()) == 
