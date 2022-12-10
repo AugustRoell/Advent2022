@@ -4,14 +4,14 @@ CXXFLAGS += -Wall -Wextra -Wpedantic
 CXXFLAGS += -O3 -march=native
 
 .PHONY: all
-all : advent1_1 advent1_2
+all : advent01_1 advent01_2
 
-advent1_1: advent1_1.cpp
+advent01_1: advent01_1.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-advent1_2: advent1_2.cpp
+advent01_2: advent01_2.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f advent1_1 advent1_2
+	rm -f advent01_1 advent01_2
