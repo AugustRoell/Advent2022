@@ -64,11 +64,17 @@ int main() {
 		}
 	}
 
+	std::cout << "\n=====================================================" 
+		<< "==========================" << "\n\n";
+
 	std::cout << "The top three elves are carrying " << top3_calories[0] 
 		<< ", " << top3_calories[1] << ", and " << top3_calories[2] 
-		<< " calories. Together they are carrying " 
+		<< " calories.\nTogether they are carrying " 
 		<< top3_calories[0] + top3_calories[1] + top3_calories[2] 
-		<< "\n";
+		<< " calories.\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================" << "\n\n";
 
 	return 0;
 }

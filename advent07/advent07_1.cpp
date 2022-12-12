@@ -116,11 +116,18 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+
 	std::cout << "The total available disk space is 70000000" << "\n\n" 
 		<< "The total unused disk space is " 
 		<< 70000000 - directory_sizes["/"] << "\n\n" 
 		<< "The total disk space taken up by directories " << '\n' 
 		<< "of size 100000 and under is " << total_size << '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

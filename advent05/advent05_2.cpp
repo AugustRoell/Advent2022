@@ -135,13 +135,50 @@ int main() {
 	}
 
 
-	//Here, we output the last element of each of the substrings of the 
-	//"stacks" object, so that we give the names of the top crate of each 
-	//stack.
+	//
+	unsigned int largest_stack_size = 0;
+
+	for (std::vector<char> stack : stacks) {
+		if (stack.size() > largest_stack_size) {
+			largest_stack_size = stack.size();
+		}
+	}
+
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+
+
+	for (int i = largest_stack_size - 1; i >= 0; i--) {
+		
+		for (unsigned int j = 0; j < stacks.size(); j++) {
+			
+			if (stacks[j].size() - 1 < i) {
+				std::cout << "    ";
+			}
+
+			else {
+				std::cout << '[' << stacks[j][i] << "] ";
+			}
+		}
+
+		std::cout << '\n';
+	}
+
+	for (unsigned int i = 1; i <= stacks.size(); i++) {
+		std::cout << ' ' << i << "  ";
+	}
+
+	std::cout << "\n\nAfter the rearrangement procedure, the crate on " 
+		<< "top of each stack is:\n\n";
+
 	for (unsigned int i = 0; i < stacks.size(); i++) {
 		std::cout << stacks[i].back() << ' ';
 	}
 	std::cout << '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

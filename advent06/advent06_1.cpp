@@ -83,10 +83,15 @@ int main() {
 		}
 	}
 
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+
 	std::cout << "We needed to process " 
 		<< first_SoP_position 
-		<< " characters to find the first start-of-packet marker"
-		<< '\n';
+		<< " characters to find the first start-of-packet marker.\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

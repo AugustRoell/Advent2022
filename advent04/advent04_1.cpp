@@ -55,9 +55,14 @@ int main () {
 		}
 	}
 
-	std::cout << "There are " << num_of_containments << 
-		" pairs where one section range contains the other" << '\n';
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
+	std::cout << "There are " << num_of_containments 
+		<< " assignment pairs where one section range contains the other.\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

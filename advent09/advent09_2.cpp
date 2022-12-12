@@ -88,10 +88,16 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+	
 	std::cout << "The tail visited " 
 		<< traversed_positions.size() 
-		<< " positions at least once" 
-		<< '\n';
+		<< " positions at least once.\n";
 
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+	
 	return 0;
 }

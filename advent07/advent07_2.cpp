@@ -136,6 +136,10 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+
 	std::cout << "The total available disk space is 70000000" << "\n\n" 
 		<< "The total unused disk space is " << unused_space << "\n\n" 
 		<< "The smallest directory which, if removed, would result " 
@@ -144,6 +148,8 @@ int main() {
 		<< smallest_dir_path << "\n\n" 
 		<< "and has a size of " << smallest_dir_size << '\n';
 
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

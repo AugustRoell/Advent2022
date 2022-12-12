@@ -29,10 +29,11 @@ int main() {
 	//relevant signal strengths.
 	int cycle = 1, X = 1, signal_strength_sum = 0;
 
-	std::cout << "Cycle" 
-		<< "	" 
-		<< "Signal Strength" 
-		<< '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+	
+	std::cout << "Cycle\t\tSignal Strength\n";
 
 	//Here we read the input .txt file per line.
 	//
@@ -63,7 +64,7 @@ int main() {
 			if ((cycle - 20) % 40 == 0) {
 				signal_strength_sum += cycle*X;
 				std::cout << cycle 
-					<< "	" 
+					<< "\t\t" 
 					<< cycle*X 
 					<< '\n';
 			}
@@ -76,7 +77,7 @@ int main() {
 			if ((cycle - 20) % 40 == 0) {
 				signal_strength_sum += cycle*X;
 				std::cout << cycle 
-					<< "	" 
+					<< "\t\t" 
 					<< cycle*X 
 					<< '\n';
 			}
@@ -88,7 +89,7 @@ int main() {
 			if ((cycle - 20) % 40 == 0) {
 				signal_strength_sum += cycle*X;
 				std::cout << cycle 
-					<< "	" 
+					<< "\t\t" 
 					<< cycle*X 
 					<< '\n';
 			}
@@ -96,10 +97,12 @@ int main() {
 	}
 
 
-	std::cout << '\n' 
-		<< "The sum of the relevant signal strengths is " 
+
+	std::cout << "\nThe sum of the relevant signal strengths is " 
 		<< signal_strength_sum << '\n';
 
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";	
 
 	return 0;
 }

@@ -54,9 +54,15 @@ int main() {
 			calories += snack;
 		}
 	}
-	
-	std::cout << "The largest number of calories is " << 
-		max_calories << "\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================" << "\n\n";
+
+	std::cout << "The largest number of calories carried by any elf is " 
+		<< max_calories << '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================" << "\n\n";
 
 	return 0;
 }

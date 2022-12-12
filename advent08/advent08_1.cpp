@@ -130,8 +130,15 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
+
 	std::cout << "There are " << num_of_visible_trees 
-		<< " trees visibile from the outside of the grid" << '\n';
+		<< " trees visibile from the outside of the grid.\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

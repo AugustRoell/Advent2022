@@ -38,7 +38,9 @@ int main() {
 	//is currently drawing.
 	int cycle = 1, X = 1, pixel = 0;
 
-	std::cout << '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	//Here we read the input .txt file per line.
 	//
@@ -128,9 +130,8 @@ int main() {
 		}
 	}
 
-
-	std::cout << '\n';
-
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

@@ -62,9 +62,14 @@ int main() {
 		}
 	}
 
-	std::cout << "The sum of priorities of the bagdes is " << 
-		priorities_sum << '\n';
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
+	std::cout << "The sum of priorities of the badges is " 
+		<< priorities_sum << '\n';
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }

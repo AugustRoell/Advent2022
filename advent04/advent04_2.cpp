@@ -50,9 +50,14 @@ int main () {
 			num_of_overlappings += 1;
 	}
 
-	std::cout << "There are " << num_of_overlappings << 
-		" pairs where one section range overlaps the other" << '\n';
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
+	std::cout << "There are " << num_of_overlappings 
+		<< " assignment pairs where one section range overlaps the other.\n";
+
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }
