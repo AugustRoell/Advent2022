@@ -276,14 +276,17 @@ int main() {
 	}
 
 
-	//Here we output the activity of each monkey, as well as the level of 
-	//monkey business after the specified number of rounds.
 	std::vector<size_t> temp = activity;
+
 	sort(temp.begin(), temp.end());
 
-	std::cout << '\n' << "===============================================" 
-		<<"======================" << "\n\n";
+	monkey_business = temp.back() * temp[temp.size() - 2];
 
+
+	//Here we output the activity of each monkey, as well as the level of 
+	//monkey business after the specified number of rounds.
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	std::cout << "Monkey\t\tActivity" << '\n';
 
@@ -293,19 +296,14 @@ int main() {
 			<< activity[i] 
 			<< '\n';
 	}
-
-	std::cout << "\n\n";
-
-	monkey_business = temp.back() * temp[temp.size() - 2];
-
-	std::cout << "The level of monkey business (after " 
-		<< num_of_rounds << " round of" 
-		<< " stuff-slinging" << '\n'
-		<< "simian shenanigans) is " 
+	
+	std::cout << "\n\nThe level of monkey business (after " 
+		<< num_of_rounds 
+		<< " round of stuff-slinging\nsimian shenanigans) is " 
 		<< monkey_business << '\n';
 
-	std::cout << '\n' << "===============================================" 
-		<<"======================" << "\n\n";
+	std::cout << "\n=====================================================" 
+		<< "==========================\n\n";
 
 	return 0;
 }
