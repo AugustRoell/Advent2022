@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 
+typedef unsigned int UI;
 
 int main() {
 	
@@ -25,7 +26,7 @@ int main() {
 
 	//unsigned integer objects containing the sum of all the priorities of 
 	//the badges.
-	unsigned int priorities_sum = 0;
+	UI priorities_sum = 0;
 
 	//Here we read the input .txt file per line. The puzzle input should 
 	//contain 300 lines, hence the 100 fold itteration of tripple reads. 
@@ -61,6 +62,24 @@ int main() {
 			}
 		}
 	}
+
+
+	std::cout << "\n           ___               ___               ___   " 
+		<< "            ___         \n" 
+		<< "      __ _(___)_        __ _(___)_        __ _(___)_     " 
+		<< "   __ _(___)_       \n" 
+		<< "     //\\/ _____ \\      //\\/ _____ \\      //\\/ _____ " 
+		<< "\\      //\\/ _____ \\      \n" 
+		<< "     ||| /`````\\ |     ||| /`````\\ |     ||| /`````\\ |" 
+		<< "     ||| /`````\\ |     \n" 
+		<< "     ||| _______ |     ||| _______ |     ||| _______ |   " 
+		<< "  ||| _______ |     \n" 
+		<< "     |||| _____ ||     |||| _____ ||     |||| _____ ||   " 
+		<< "  |||| _____ ||     \n" 
+		<< "      \\|| ````` ||      \\|| ````` ||      \\|| ````` ||" 
+		<< "      \\|| ````` ||    \n" 
+		<< "        \\\\_____//         \\\\_____//         \\\\_____" 
+		<< "//         \\\\_____//      \n";
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";

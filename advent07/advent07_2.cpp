@@ -11,6 +11,10 @@
 #include <vector>
 #include <unordered_map>
 
+typedef unsigned int UI;
+typedef std::vector<std::string> VS;
+typedef std::unordered_map<std::string, UI> UM_SUI;
+
 
 int main() {
 	
@@ -29,20 +33,20 @@ int main() {
 	//represented by the path at index "i". For example, if we are working 
 	//in the directory "//dir_x/dir_y/dir_z", the vector would be 
 	//{"/", "//dir_x", "//dir_x/dir_y", "//dir_x/dir_y/dir_z"}.
-	std::vector<std::string> branch;
+	VS branch;
 
 	//An unordered map object that will take as its keys the full paths to 
 	//directories, and as its values the sum of the sizes of all the files 
 	//contained either directly or indirectly by the directory with that 
 	//path.
-	std::unordered_map<std::string, unsigned int> directory_sizes;
+	UM_SUI directory_sizes;
 
 	//An unsigned integer object that will contain the size of the 
 	//smallest directory which, if removed, would result in an unused disc 
 	//space of at least 30000000. We initialize it to the total available 
 	//disc space in order to have a reference point to compare the sizes 
 	//of the directories.
-	unsigned int smallest_dir_size = 70000000;
+	UI smallest_dir_size = 70000000;
 
 
 	//Here we read the input .txt file per line.
@@ -122,7 +126,7 @@ int main() {
 
 
 	//An unsigned integer object that represents the unused disc space.
-	unsigned int unused_space = 70000000 - directory_sizes["/"];
+	UI unused_space = 70000000 - directory_sizes["/"];
 
 	//Here, we itterate over elements of the unordered map containing the 
 	//information about the sizes of all the directories in order to find 

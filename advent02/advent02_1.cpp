@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+typedef unsigned int UI;
 
 int main() {
 
@@ -17,7 +18,7 @@ int main() {
 	char opponent_move, own_move;
 
 	//An unsigned integer that keeps track of your total score.
-	unsigned int score = 0;
+	UI score = 0;
 
 	//Here we read the input .txt file per line. The puzzle input should 
 	//contain 2500 lines, hence the 2500 fold itteration. Each line 
@@ -69,6 +70,22 @@ int main() {
 
 
 	}
+
+
+	std::cout << "               _________                              _" 
+		<< "________               \n" 
+		<< "              |         |                            |   " 
+		<< "      |              \n" 
+		<< "   __         | ------- |    |\\ /|        __         | -" 
+		<< "------ |    |\\ /|     \n" 
+		<< "  / _\\_-._    | ------- |     \\/ /       / _\\_-._    |" 
+		<< " ------- |     \\/ /     \n" 
+		<< " /-\\ -_  .\\   | ------- |    _/0/\\_     /-\\ -_  .\\  " 
+		<< " | ------- |    _/0/\\_    \n" 
+		<< " \\ _./ -  /   | ------- |   // \\\\ \\\\    \\ _./ -  / " 
+		<< "  | ------- |   // \\\\ \\\\   \n" 
+		<< "/__-\\_--_/    |_________|   \\\\_//_//   /__-\\_--_/    " 
+		<< "|_________|   \\\\_//_//   \n";
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";

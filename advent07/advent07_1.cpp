@@ -10,6 +10,9 @@
 #include <vector>
 #include <unordered_map>
 
+typedef unsigned int UI;
+typedef std::vector<std::string> VS;
+typedef std::unordered_map<std::string, UI> UM_SUI;
 
 int main() {
 	
@@ -26,17 +29,17 @@ int main() {
 	//represented by the path at index "i". For example, if we are working 
 	//in the directory "//dir_x/dir_y/dir_z", the vector would be 
 	//{"/", "//dir_x", "//dir_x/dir_y", "//dir_x/dir_y/dir_z"}.
-	std::vector<std::string> branch;
+	VS branch;
 
 	//An unordered map object that will take as its keys the full paths to 
 	//directories, and as its values the sum of the sizes of all the files 
 	//contained either directly or indirectly by the directory with that 
 	//path.
-	std::unordered_map<std::string, unsigned int> directory_sizes;
+	UM_SUI directory_sizes;
 
 	//An unsigned integer object that will contain the sum of all the 
 	//sizes of all the directories that occupy at most 100000 memory.
-	unsigned int total_size = 0;
+	UI total_size = 0;
 
 
 	//Here we read the input .txt file per line.
@@ -116,6 +119,9 @@ int main() {
 		}
 	}
 
+
+	std::cout << "               * . `*          * . `*          * . `*  " 
+		<< "        * . `*          \n"
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";

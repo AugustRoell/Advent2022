@@ -13,11 +13,15 @@
 #include <vector>
 #include <algorithm>
 
+typedef unsigned int UI;
+typedef std::vector<char> VC;
+typedef std::vector<VC> VVC;
+
 
 //A function to find whether the given string constitutes a white line. 
 //Return 1 if the line is white and 0 if it is not.
 bool isWhitespace(std::string s) {
-	for (std::size_t index = 0; index < s.length(); index++) {
+	for (size_t index = 0; index < s.length(); index++) {
 		if (!std::isspace(s[index])) {
 			return false;
 		}
@@ -36,14 +40,14 @@ int main() {
 	//A vector object containing vectors of characters, such that each of 
 	//the substrings corresponds to a stack, and each of the characters in 
 	//such a substring represents a name of a crate in that stack.
-	std::vector<std::vector<char>> stacks;
+	VVC stacks;
 
 	//Three unsigned integer object which contain information about a 
 	//permutation of the crate configuration, such that the first 
 	//corresponds to the number of crates that will be moved, the second 
 	//corresponds to the stack that the crates will be taken from, and the 
 	//third corresponds to the stack the crates will be moved to.
-	unsigned int num_of_moves, origin, destination;
+	UI num_of_moves, origin, destination;
 
 
 	//Here we read the input .txt file per line untill we encounter a 
@@ -76,14 +80,14 @@ int main() {
 		}
 		else {
 			if (stacks.empty()) {
-				for (std::size_t i = 0; 
+				for (size_t i = 0; 
 						i < line.length()/4; i++) {
 
 					stacks.push_back({});
 				}
 			}
 
-			for (std::size_t i = 0; i < line.length()/4; i++) {
+			for (size_t i = 0; i < line.length()/4; i++) {
 				if (std::isupper(line[1 + 4*i])) {
 					stacks[i].push_back(line[1 + 4*i]);
 				}	
@@ -95,7 +99,7 @@ int main() {
 	//Here we reverse all of the substrings of the "stacks" object, so 
 	//that the last element of such a substring correspond to the top 
 	//crate of the corresponding stack.
-	for (unsigned int i = 0; i < stacks.size(); i++) {
+	for (UI i = 0; i < stacks.size(); i++) {
 		std::reverse(stacks[i].begin(), stacks[i].end());
 	}
 
@@ -122,7 +126,7 @@ int main() {
 					line.find_last_of('m') - 3));
 		destination = stoi(line.substr(line.find_last_of('o') + 2));
 
-		for (unsigned int i = 0; i < num_of_moves; i++) {
+		for (UI i = 0; i < num_of_moves; i++) {
 			stacks[destination - 1].push_back(
 					stacks[origin - 1].back());
 
@@ -131,14 +135,32 @@ int main() {
 	}
 
 	//
-	unsigned int largest_stack_size = 0;
+	UI largest_stack_size = 0;
 
-	for (std::vector<char> stack : stacks) {
+	for (VC stack : stacks) {
 		if (stack.size() > largest_stack_size) {
 			largest_stack_size = stack.size();
 		}
 	}
 
+
+
+	std::cout << "       _________          _________          _________ " 
+		<< "         _________     \n" 
+		<< "      |_/\\/\\/\\  \\        |_/\\/\\/\\  \\        |_/" 
+		<< "\\/\\/\\  \\        |_/\\/\\/\\  \\    \n" 
+		<< "       |    _|__|         |    _|__|         |    _|__|  " 
+		<< "       |    _|__|    \n" 
+		<< "      _|_  | oo |        _|_  | oo |        _|_  | oo |  " 
+		<< "      _|_  | oo |    \n" 
+		<< "     |###|  \\___|       |###|  \\___|       |###|  \\___" 
+		<< "|       |###|  \\___|    \n" 
+		<< "     |###|   |  |       |###|   |  |       |###|   |  |  " 
+		<< "     |###|   |  |    \n" 
+		<< "      ```   /    \\       ```   /    \\       ```   /    " 
+		<< "\\       ```   /    \\   \n" 
+		<< "           |__/\\__|           |__/\\__|           |__/\\" 
+		<< "__|           |__/\\__|  \n";
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";
@@ -146,7 +168,7 @@ int main() {
 
 	for (int i = largest_stack_size - 1; i >= 0; i--) {
 		
-		for (unsigned int j = 0; j < stacks.size(); j++) {
+		for (UI j = 0; j < stacks.size(); j++) {
 			
 			if (stacks[j].size() - 1 < i) {
 				std::cout << "    ";
@@ -160,14 +182,14 @@ int main() {
 		std::cout << '\n';
 	}
 
-	for (unsigned int i = 1; i <= stacks.size(); i++) {
+	for (UI i = 1; i <= stacks.size(); i++) {
 		std::cout << ' ' << i << "  ";
 	}
 
 	std::cout << "\n\nAfter the rearrangement procedure, the crate on " 
 		<< "top of each stack is:\n\n";
 
-	for (unsigned int i = 0; i < stacks.size(); i++) {
+	for (UI i = 0; i < stacks.size(); i++) {
 		std::cout << stacks[i].back() << ' ';
 	}
 	std::cout << '\n';

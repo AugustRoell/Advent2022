@@ -15,6 +15,8 @@
 #include <vector>
 #include <algorithm>
 
+typedef std::pair<int, int> P;
+typedef std::vector<P> VP;
 
 int main() {
 
@@ -23,13 +25,13 @@ int main() {
 
 	//A pair object of two integers, which represents the origin of the 
 	//lattice over which the knot objects will move. 
-	std::pair<int, int> origin = std::make_pair(0, 0);
+	P origin = std::make_pair(0, 0);
 
 	//A vector of pair objects which will contain all the positions the 
 	//tail knot traversed at least once. It will contain each such 
 	//position exactly once. It is initialized with a vector containing 
 	//only the origin, because that is where all the knots start.
-	std::vector<std::pair<int, int>> traversed_positions = {origin};
+	VP traversed_positions = {origin};
 
 	//Ten Knot objects, which will represent the head, the tail, and all 
 	//the knots in between of the simulated rope. They are initialized at 

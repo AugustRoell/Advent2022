@@ -9,12 +9,13 @@
 #include <vector>
 #include <algorithm>
 
+typedef std::vector<int> VI;
 
 
 //A function to find whether the given string constitutes a white line.
 //Returns 1 if the line is white and 0 if it is not.
 bool isWhitespace(const std::string s) {
-    for(std::size_t index = 0; index < s.length(); index++){
+    for(size_t index = 0; index < s.length(); index++){
         if(!std::isspace(s[index]))
             return false;
     }
@@ -36,7 +37,7 @@ int main() {
 
 	//The vector object containing the three integer objects that keep 
 	//track of the three largest calorie counts per elf.
-	std::vector<int> top3_calories (3,0);
+	VI top3_calories (3,0);
 
 	//Here we read the input .txt file per line.
 	//
@@ -64,6 +65,20 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n    _      _      _      _      _        O        _  " 
+		<< "    _      _      _    \n" 
+		<< "   /\\\\    /\\\\    /\\\\    /\\\\    /\\\\      /|\\   " 
+		<< "   /\\\\    /\\\\    /\\\\    /\\\\   \n" 
+		<< "  0  O   0  O   0  O   0  O   0  O     / | \\    0  O   0" 
+		<< "  O   0  O   0  O   \n" 
+		<< "    /|\\    /|\\    /|\\    /|\\    /|\\      |        /|" 
+		<< "\\    /|\\    /|\\    /|\\  \n" 
+		<< "     |      |      |      |      |      | |        |     " 
+		<< " |      |      |   \n" 
+		<< "    / |    / |    / |    / |    / |    /  |       / |    " 
+		<< "/ |    / |    / |  \n";
+	
 	std::cout << "\n=====================================================" 
 		<< "==========================" << "\n\n";
 

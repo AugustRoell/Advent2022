@@ -12,6 +12,8 @@
 #include <string>
 #include <unordered_set>
 
+typedef std::unordered_set<char> US_C;
+
 
 int main() {
 
@@ -23,12 +25,12 @@ int main() {
 	//A size type object that will contain the position (index + 1) of the 
 	//last character of the first instance of a SoM tetrakaidekatuplet in 
 	//the input string.
-	std::size_t first_SoM_position;
+	size_t first_SoM_position;
 
 	//An unordered set that will, for each tetrakaidekatuplet, contain 
 	//characters of that tetrakaidekatuplet, in order to test if a 
 	//character in the tetrakaidekatuplet occurs more than once.
-	std::unordered_set<char> occured;
+	US_C occured;
 
 	//A boolean object that contains information about whether there was 
 	//a character in a given tetrakaidekatuplet that occured more than once.
@@ -58,7 +60,7 @@ int main() {
 	//indeed the case, we set the size type object "first_SoM_position" to 
 	//the position of the last character in this tetrakaidekatuplet and 
 	//break out of the itteration over the input string.
-	for (std::size_t i = 0; i < line.length() - 13; i++) {
+	for (size_t i = 0; i < line.length() - 13; i++) {
 
 		tetrakaidekatuplet = line.substr(i, 14);
 
@@ -83,6 +85,27 @@ int main() {
 		}
 	}
 
+
+	std::cout << "\n               * . `*          * . `*          * . `*" 
+		<< "          * . `*            \n" 
+		<< "            TT  .* '        TT  .* '        TT  .* '     " 
+		<< "   TT  .* '           \n" 
+		<< "           _||______       _||______       _||______     " 
+		<< "  _||______           \n" 
+		<< "          / _______ \\     / _______ \\     / _______ \\ " 
+		<< "    / _______ \\          \n" 
+		<< "          || mgtgd ||     || ffzvz ||     || crrbq ||    " 
+		<< " || ffzqq ||          \n" 
+		<< "          || dtfdt ||     || nvnrn ||     || qhlhh ||    " 
+		<< " || zpqqt ||          \n" 
+		<< "          ||_______||     ||_______||     ||_______||    " 
+		<< " ||_______||          \n" 
+		<< "          |  O O O  |     |  O O O  |     |  O O O  |    " 
+		<< " |  O O O  |          \n" 
+		<< "          |  O O O  |     |  O O O  |     |  O O O  |    " 
+		<< " |  O O O  |          \n" 
+		<< "           \\_______/       \\_______/       \\_______/  " 
+		<< "     \\_______/           \n";
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";

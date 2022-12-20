@@ -17,10 +17,13 @@
 #include <deque>
 #include <algorithm>
 
+typedef std::vector<unsigned int> VUI;
+typedef std::deque<unsigned int> DUI;
+
 
 //A function that returns the inventory of a monkey as a deque object, given 
 //as input a string containing the information about the monkey's inventory.
-std::deque<unsigned int> ConstructInventory(std::string const& s) {
+DUI ConstructInventory(std::string const& s) {
 	
 	std::string temp = s;
 	std::string delimiter = ", ";
@@ -28,7 +31,7 @@ std::deque<unsigned int> ConstructInventory(std::string const& s) {
 	std::string token;
 	size_t pos = 0;
 
-	std::deque<unsigned int> inventory_deque;
+	DUI inventory_deque;
 
 	while((pos = temp.find(delimiter)) != std::string::npos) {
 		token = temp.substr(0, pos);
@@ -141,10 +144,10 @@ int main() {
 	//the number of our items each monkey has inspected over the course of 
 	//the game.
 	std::vector<std::string> operation;
-	std::vector<unsigned int> test;
-	std::vector<unsigned int> destinations;
-	std::vector<std::deque<unsigned int>> inventories;
-	std::vector<unsigned int> activity;
+	VUI test;
+	VUI destinations;
+	std::vector<DUI> inventories;
+	VUI activity;
 
 
 	//Here we read th input .txt file per line.
@@ -236,7 +239,7 @@ int main() {
 	}
 
 
-	std::vector<unsigned int> temp = activity;
+	VUI temp = activity;
 	
 	sort(temp.begin(), temp.end());
 

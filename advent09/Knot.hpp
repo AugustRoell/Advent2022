@@ -6,6 +6,8 @@
 #include <string>
 #include <iostream>
 
+typedef std::pair<int, int> P;
+
 
 //A super class that contains basic member for accessing the relevant 
 //information. Each "Knot" object is represented by a pair of integers, 
@@ -17,8 +19,8 @@ class Knot {
 		Knot(const int x = 0, const int y = 0) :
 			x_(x), y_(y) {}
 
-		std::pair<int, int> get_position() {
-			std::pair<int, int> position = std::make_pair(x_, y_);
+		P get_position() {
+			P position = std::make_pair(x_, y_);
 			return position;
 		}
 

@@ -12,6 +12,10 @@
 #include <string>
 #include <vector>
 
+typedef unsigned int UI;
+typedef std::vector<UI> VUI;
+typedef std::vector<VUI> VVUI;
+
 
 //A function that takes as its arguments a grid of trees (represented by a 
 //matrix of unsigned integers), as well as two insigned integers 
@@ -24,10 +28,9 @@
 //of the original tree. Finally, if the tree is not visible from any of these 
 //four directions, the function returns "false", and otherwise it 
 //returns "true".
-bool isVisible(std::vector<std::vector<unsigned int>> grid, 
-		unsigned int row, unsigned int column) {
+bool isVisible(VVUI grid, UI row, UI column) {
 
-	unsigned int num_of_rows = grid.size(), 
+	UI num_of_rows = grid.size(), 
 		num_of_columns = grid[0].size();
 
 	bool visible_from_right = true, 
@@ -35,8 +38,7 @@ bool isVisible(std::vector<std::vector<unsigned int>> grid,
 		visible_from_top = true,
 		visible_from_bottom = true;
 
-	for (unsigned int column_number = 0; 
-			column_number < num_of_columns; 
+	for (UI column_number = 0; column_number < num_of_columns; 
 			column_number++) {
 		
 		if (column_number != column) {
@@ -54,8 +56,7 @@ bool isVisible(std::vector<std::vector<unsigned int>> grid,
 		}
 	}
 
-	for (unsigned int row_number = 0; 
-			row_number < num_of_rows; 
+	for (UI row_number = 0; row_number < num_of_rows; 
 			row_number++) {
 		
 		if (row_number != row) {
@@ -88,15 +89,13 @@ int main() {
 	//Three unsigned integer objects, the first two of which specify the 
 	//dimensions of the grid of trees, and the third of which keeps track 
 	//of the number of visible trees in the grid.
-	unsigned int num_of_rows = 99, num_of_columns = 99, 
-		     num_of_visible_trees = 0;
+	UI num_of_rows = 99, num_of_columns = 99, num_of_visible_trees = 0;
 
 	//A vector object, containing vectors of unsigned integers, so that 
 	//the whole object represents the grid of trees, with each integer 
 	//representing the height of a specific tree. It is initialized with 
 	//the dimensions given by "num_of_rows" and "num_of_columns".
-	std::vector<std::vector<unsigned int>> grid (num_of_rows, 
-			std::vector<unsigned int> (num_of_columns));
+	VVUI grid (num_of_rows, VUI (num_of_columns));
 
 
 	//Here we read the input .txt file per line.
@@ -105,11 +104,11 @@ int main() {
 	//to an (unsigned) integer and write it to the corresponding element 
 	//of the "grid" object. In this way we construct the "grid" objects, 
 	//representing the grid of trees given by the input .txt file.
-	for (unsigned int i = 0; i < num_of_rows; i++) {
+	for (UI i = 0; i < num_of_rows; i++) {
 
 		std::cin >> line;
 
-		for (unsigned int j = 0; j < num_of_columns; j++) {
+		for (UI j = 0; j < num_of_columns; j++) {
 			grid[i][j] = stoi(line.substr(j, 1));
 		}
 	}
@@ -120,9 +119,8 @@ int main() {
 	//whether this tree would be visible from the outside, which is done 
 	//by applying the "isVisbile" function. If a tree is visible from the 
 	//outside, we increase the "num_of_visible_trees" integer by one.
-	for (unsigned int row = 0; row < num_of_rows; row++) {
-		for (unsigned int column = 0; 
-				column < num_of_columns; column++) {
+	for (UI row = 0; row < num_of_rows; row++) {
+		for (UI column = 0; column < num_of_columns; column++) {
 		
 			if (isVisible(grid, row, column)) {
 				num_of_visible_trees++;
@@ -131,8 +129,7 @@ int main() {
 	}
 
 
-	std::cout << "\n=====================================================" 
-		<< "==========================\n\n";
+	std::cout << '\n';
 
 	std::cout << "                                    _---_              " 
 		<< "                        \n"

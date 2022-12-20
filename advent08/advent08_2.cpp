@@ -13,6 +13,10 @@
 #include <string>
 #include <vector>
 
+typedef unsigned int UI;
+typedef std::vector<UI> VUI;
+typedef std::vector<VUI> VVUI;
+
 
 //A function that takes as its arguments a grid of trees (represented by a 
 //matrix of unsigned integers), as well as two insigned integers 
@@ -26,21 +30,20 @@
 //score. Note that we first check if the tree is at the edge of the grid 
 //("row" or "column" equal to zero), because in that case we know its scenic 
 //score will be zero without calculating all the viewing distances.
-unsigned int ScenicScore(std::vector<std::vector<unsigned int>> grid, 
-		unsigned int row, unsigned int column) {
+UI ScenicScore(VVUI grid, UI row, UI column) {
 
 	if (row == 0 || column == 0) {
 		return 0;
 	}
 
-	unsigned int num_of_rows = grid.size(), 
+	UI num_of_rows = grid.size(), 
 		num_of_columns = grid[0].size(),
 		visible_to_right = 0, 
 		visible_to_left = 0,
 		visible_to_top = 0,
 		visible_to_bottom = 0;
 
-	for (unsigned int column_number = column + 1;
+	for (UI column_number = column + 1;
 			column_number < num_of_columns; 
 			column_number++) {
 			
@@ -73,7 +76,7 @@ unsigned int ScenicScore(std::vector<std::vector<unsigned int>> grid,
 		}
 	}
 
-	for (unsigned int row_number = row + 1;
+	for (UI row_number = row + 1;
 			row_number < num_of_rows; 
 			row_number++) {
 		
@@ -101,7 +104,7 @@ int main() {
 	//dimensions of the grid of trees, and the second two of which 
 	//respectively keep track of the scenic score of each tree and the 
 	//largest scenic score yet encountered.
-	unsigned int num_of_rows = 99, num_of_columns = 99, 
+	UI num_of_rows = 99, num_of_columns = 99, 
 		     new_scenic_score,
 		     max_scenic_score = 0;
 
@@ -109,8 +112,7 @@ int main() {
 	//the whole object represents the grid of trees, with each integer 
 	//representing the height of a specific tree. It is initialized with 
 	//the dimensions given by "num_of_rows" and "num_of_columns".
-	std::vector<std::vector<unsigned int>> grid (num_of_rows, 
-			std::vector<unsigned int> (num_of_columns));
+	VVUI grid (num_of_rows, VUI (num_of_columns));
 
 
 	//Here we read the input .txt file per line.
@@ -119,11 +121,11 @@ int main() {
 	//to an (unsigned) integer and write it to the corresponding element 
 	//of the "grid" object. In this way we construct the "grid" objects, 
 	//representing the grid of trees given by the input .txt file.
-	for (unsigned int i = 0; i < num_of_rows; i++) {
+	for (UI i = 0; i < num_of_rows; i++) {
 
 		std::cin >> line;
 
-		for (unsigned int j = 0; j < num_of_columns; j++) {
+		for (UI j = 0; j < num_of_columns; j++) {
 			grid[i][j] = stoi(line.substr(j, 1));
 		}
 	}
@@ -134,8 +136,8 @@ int main() {
 	//whether the scenic score of this tree is greater than the greatest 
 	//scenic score yet encountered. If it is, it becomes the new value of 
 	//"max_scenic_score".
-	for (unsigned int row = 0; row < num_of_rows; row++) {
-		for (unsigned int column = 0; 
+	for (UI row = 0; row < num_of_rows; row++) {
+		for (UI column = 0; 
 				column < num_of_columns; column++) {
 			
 			new_scenic_score = ScenicScore(grid, row, column);
@@ -147,8 +149,7 @@ int main() {
 	}
 
 
-	std::cout << "\n=====================================================" 
-		<< "==========================\n\n";
+	std::cout << '\n';
 
 	std::cout << "                                    _---_              " 
 		<< "                        \n"

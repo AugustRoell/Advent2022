@@ -28,10 +28,13 @@
 #include <deque>
 #include <algorithm>
 
+typedef std::vector<size_t> DST;
+typedef std::deque<size_t> DST;
+
 
 //A function that returns the inventory of a monkey as a deque object, given 
 //as input a string containing the information about the monkey's inventory.
-std::deque<size_t> ConstructInventory(std::string const& s) {
+DST ConstructInventory(std::string const& s) {
 	
 	std::string temp = s;
 	std::string delimiter = ", ";
@@ -39,7 +42,7 @@ std::deque<size_t> ConstructInventory(std::string const& s) {
 	std::string token;
 	size_t pos = 0;
 
-	std::deque<size_t> inventory_deque;
+	DST inventory_deque;
 
 	while((pos = temp.find(delimiter)) != std::string::npos) {
 		token = temp.substr(0, pos);
@@ -172,13 +175,13 @@ int main() {
 	//number of our items each monkey has inspected over the course of the 
 	//game.
 	std::vector<std::string> operation;
-	std::vector<size_t> test;
-	std::vector<unsigned int> destinations;
-	std::vector<std::deque<size_t>> inventories;
-	std::vector<size_t> activity;
+	VST test;
+	VST destinations;
+	std::vector<DST> inventories;
+	VST activity;
 
 
-	//Here we read th input .txt file per line.
+	//Here we read the input .txt file per line.
 	//
 	//For each input line, we check whether the line specifies the monkey, 
 	//the inventory, the operation, the test criterion, or the possible 
@@ -276,7 +279,7 @@ int main() {
 	}
 
 
-	std::vector<size_t> temp = activity;
+	VST temp = activity;
 
 	sort(temp.begin(), temp.end());
 

@@ -7,6 +7,8 @@
 #include <iostream>
 #include <string>
 
+typedef unsigned int UI;
+
 
 int main() {
 	
@@ -25,7 +27,7 @@ int main() {
 
 	//unsigned integer objects containing the length of an input string, 
 	//as well as the sum of all the priorities of the misplaced items.
-	unsigned int length, priorities_sum = 0;
+	UI length, priorities_sum = 0;
 
 	//Here we read the input .txt file per line. The puzzle input should 
 	//contain 300 lines, hence the 300 fold itteration. Each line contains 
@@ -59,6 +61,24 @@ int main() {
 			}
 		}
 	}
+
+
+	std::cout << "\n           ___               ___               ___   " 
+		<< "            ___         \n" 
+		<< "      __ _(___)_        __ _(___)_        __ _(___)_     " 
+		<< "   __ _(___)_       \n" 
+		<< "     //\\/ _____ \\      //\\/ _____ \\      //\\/ _____ " 
+		<< "\\      //\\/ _____ \\      \n" 
+		<< "     ||| /`````\\ |     ||| /`````\\ |     ||| /`````\\ |" 
+		<< "     ||| /`````\\ |     \n" 
+		<< "     ||| _______ |     ||| _______ |     ||| _______ |   " 
+		<< "  ||| _______ |     \n" 
+		<< "     |||| _____ ||     |||| _____ ||     |||| _____ ||   " 
+		<< "  |||| _____ ||     \n" 
+		<< "      \\|| ````` ||      \\|| ````` ||      \\|| ````` ||" 
+		<< "      \\|| ````` ||    \n" 
+		<< "        \\\\_____//         \\\\_____//         \\\\_____" 
+		<< "//         \\\\_____//      \n";
 
 	std::cout << "\n=====================================================" 
 		<< "==========================\n\n";
